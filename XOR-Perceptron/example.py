@@ -31,7 +31,9 @@ model.add(tf.keras.layers.Dense(1, activation="sigmoid"))
 
 # This creates an input layer with 2 neurons, and a single output neuron. (Single layer perceptron)
 # XOR is impossible with this model, but OR can easily be predicted.
+"""
 model.add(tf.keras.layers.Dense(1, input_dim=2, activation="sigmoid"))
+"""
 
 #tf.keras.utils.plot_model(model, to_file='single-layer.png', show_shapes=True, show_layer_names=True)
 
