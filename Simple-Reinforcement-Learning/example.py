@@ -39,14 +39,6 @@ for x in range(100):
         actionPoints = max(qTable[state])
         action = qTable[state].index(actionPoints)
 
-
-    for z in range(len(qTable.keys())):
-        explore = random.uniform(0, 0.01)
-        key = list(qTable.keys())[z]
-        for x in range(len(qTable[key])):
-            qTable[key][x] += explore
-
-
     if(action == 0 and agentPos > 0):
         agentPos-=1 
     elif(action == 1):
