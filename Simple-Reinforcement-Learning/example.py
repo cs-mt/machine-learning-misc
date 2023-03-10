@@ -11,6 +11,9 @@ qTable = {
 agentPos = 0
 finishPos = 20
 
+# Lower is less random
+RANDOMNESS = 0.2
+
 def draw():
     out = ""
     for x in range(finishPos):
@@ -27,8 +30,14 @@ for x in range(100):
 
     state = "START" if agentPos == 0 else "SPACE"
 
-    actionPoints = max(qTable[state])
-    action = qTable[state].index(actionPoints)
+    #Random Exploration
+    if random.uniform(0,1) < RANDOMNESS:
+        actionPoints = random.choice(qTable[state])
+        action = qTable[state].index(actionPoints)
+    # Choose the best value
+    else:
+        actionPoints = max(qTable[state])
+        action = qTable[state].index(actionPoints)
 
 
     for z in range(len(qTable.keys())):
@@ -43,8 +52,8 @@ for x in range(100):
     elif(action == 1):
         agentPos+=1
 
-    lr = 1
-    dr = 0
+    lr = 0.5
+    dr = 0.5
 
     reward = 1 if action == 1 else -1
     maxReward = 1
