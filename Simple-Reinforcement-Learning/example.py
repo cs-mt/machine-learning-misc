@@ -22,9 +22,10 @@ def draw():
     print(out)
 
 for x in range(100):
+    print(qTable)
     draw()
 
-    state = "START" if x == 0 else "SPACE"
+    state = "START" if agentPos == 0 else "SPACE"
 
     actionPoints = max(qTable[state])
     action = qTable[state].index(actionPoints)
@@ -42,10 +43,10 @@ for x in range(100):
     elif(action == 1):
         agentPos+=1
 
-    lr = 0.1
+    lr = 1
     dr = 0
 
-    reward = 1 if action == 1 else 0
+    reward = 1 if action == 1 else -1
     maxReward = 1
 
     # New point calculation formula:
